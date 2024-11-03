@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iOS-Themed Share Market Calculator</title>
+    <title>📈 Share Market Calculator</title>
     <style>
         /* Basic styling */
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -73,10 +73,10 @@
 </head>
 <body>
     <div class="container">
-        <h2>Share Market Profit Calculator</h2>
+        <h2>📊 Share Market Calculator</h2>
         <form id="shareMarketForm">
             <div class="form-group">
-                <label for="index">Select Index</label>
+                <label for="index">📈 Select Index</label>
                 <select id="index" onchange="updateLotSize()" required>
                     <option value="" disabled selected>Select Index</option>
                     <option value="Nifty 50">Nifty 50</option>
@@ -86,30 +86,30 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="lotSize">Select Lot Size</label>
+                <label for="lotSize">🔢 Select Lot Size</label>
                 <select id="lotSize" onchange="updateInvestment()" required>
                     <option value="" disabled selected>Select Lot Size</option>
                 </select>
             </div>
             <div class="form-group">
-                <label for="numLots">Enter Number of Lots</label>
+                <label for="numLots">📥 Enter Number of Lots</label>
                 <input type="number" id="numLots" placeholder="Enter number of lots" oninput="updateInvestment()" required>
             </div>
             <div class="form-group">
-                <label for="entryPrice">Enter Entry Price</label>
+                <label for="entryPrice">💲 Enter Entry Price</label>
                 <input type="number" id="entryPrice" placeholder="Enter entry price" oninput="updateInvestment()" required>
             </div>
             <div class="form-group">
-                <label for="targetPrice">Enter Target Price</label>
+                <label for="targetPrice">🎯 Enter Target Price</label>
                 <input type="number" id="targetPrice" placeholder="Enter target price" required>
             </div>
-            <button type="button" onclick="calculateProfit()">Calculate Profit/Loss</button>
+            <button type="button" onclick="calculateProfit()">🔍 Calculate Profit/Loss</button>
         </form>
         <div id="investmentAmount">
-            <p>Estimated Investment Amount: ₹<span id="investmentValue">0.00</span></p>
+            <p>💰 Estimated Investment Amount: ₹<span id="investmentValue">0.00</span></p>
         </div>
         <div id="resultSection">
-            <h5>Calculation Result:</h5>
+            <h5>📑 Calculation Result:</h5>
             <p id="result"></p>
             <p id="roiPercentage"></p> <!-- ROI output added here -->
         </div>
@@ -152,7 +152,7 @@
             const entryPrice = parseFloat(document.getElementById('entryPrice').value);
             const targetPrice = parseFloat(document.getElementById('targetPrice').value);
             if (isNaN(lotSize) || isNaN(numLots) || isNaN(entryPrice) || isNaN(targetPrice)) {
-                document.getElementById('result').textContent = "Please fill in all fields correctly.";
+                document.getElementById('result').textContent = "⚠️ Please fill in all fields correctly.";
                 document.getElementById('resultSection').style.display = "block";
                 return;
             }
@@ -160,10 +160,10 @@
             const totalProfitLoss = lotSize * numLots * (targetPrice - entryPrice);
             const roi = (totalProfitLoss / totalInvestment) * 100; // ROI calculation
             document.getElementById('result').textContent = totalProfitLoss >= 0
-                ? `Profit: ₹${totalProfitLoss.toFixed(2)}`
-                : `Loss: ₹${Math.abs(totalProfitLoss).toFixed(2)}`;
+                ? `📈 Profit: ₹${totalProfitLoss.toFixed(2)}`
+                : `📉 Loss: ₹${Math.abs(totalProfitLoss).toFixed(2)}`;
             document.getElementById('result').className = totalProfitLoss >= 0 ? 'profit' : 'loss';
-            document.getElementById('roiPercentage').textContent = `ROI: ${roi.toFixed(2)}%`; // Display ROI
+            document.getElementById('roiPercentage').textContent = `📊 ROI: ${roi.toFixed(2)}%`; // Display ROI
             document.getElementById('resultSection').style.display = "block";
         }
     </script>
